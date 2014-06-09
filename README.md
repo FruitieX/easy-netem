@@ -5,7 +5,7 @@ Helper scripts for netem
 Setup
 -----
 1. Create the IFB device which can attach qdiscs to incoming packets, redirects packets from INAME. Also add netem to INAME:
-  * Run `sudo ./init.sh INAME`
+  * `sudo ./init.sh INAME`
 
 2. Add packet loss (the `LOSS` parameter is an integer from 0 - 100, denotes percentage) with:
   * Outgoing packet loss: `sudo ./pl.sh INAME LOSS`
@@ -14,5 +14,8 @@ Setup
 3. Add latency (the `LAG` parameter is an integer from 0 and up, denotes ms) with:
   * Outgoing latency: `sudo ./lag.sh INAME LAG`
   * Incoming latency: `sudo ./lag.sh ifb0 LAG`
+
+4. Delete IFB device and remove netem:
+  * `sudo ./deinit.sh INAME`
 
 [More info](http://www.linuxfoundation.org/collaborate/workgroups/networking/netem)
