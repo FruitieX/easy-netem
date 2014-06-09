@@ -1,3 +1,9 @@
+easy-netem
+==========
+Helper scripts for netem
+
+Setup
+-----
 Create the IFB device which can attach qdiscs to incoming packets, redirects packets from INAME.
 Also add netem to INAME:
 * Run `sudo ./init.sh INAME`
