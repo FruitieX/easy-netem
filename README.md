@@ -22,4 +22,5 @@ Deinitialize
 ------------
 `sudo ./netem.sh INAME deinit`
 
-[More info](http://www.linuxfoundation.org/collaborate/workgroups/networking/netem)
+
+[More info on netem](http://www.linuxfoundation.org/collaborate/workgroups/networking/netem)
