@@ -8,8 +8,7 @@ Setup
   * `sudo ./init.sh INAME`
 
 2. Add latency / packet loss (`LOSS` = loss in percentage, from 0 - 100, `LATENCY` = latency in ms):
-  * Outgoing: `sudo ./netem.sh INAME LATENCY LOSS`
-  * Incoming: `sudo ./netem.sh ifb0 LATENCY LOSS`
+  * `sudo ./netem.sh INAME LATENCY LOSS`
 
 3. Delete IFB device and remove netem from INAME:
   * `sudo ./deinit.sh INAME`
