@@ -2,15 +2,25 @@ easy-netem
 ==========
 Helper scripts for netem
 
+Help
+----
+`./netem.sh -h`
+
 Setup
 -----
-1. Create the IFB device which can attach qdiscs to incoming packets, redirects packets from INAME. Also add netem to INAME:
-  * `sudo ./init.sh INAME`
+1. Initialize on interface INAME:
+  * `sudo ./netem.sh INAME init`
 
-2. Add latency / packet loss (`LOSS` = loss in percentage, from 0 - 100, `LATENCY` = latency in ms):
-  * `sudo ./netem.sh INAME LATENCY LOSS`
+2. Add 100ms RTT, 2% packet loss, 1024kbit/s rate limit:
+  * `sudo ./netem.sh INAME tc 100 2 1024kbit`
 
-3. Delete IFB device and remove netem from INAME:
-  * `sudo ./deinit.sh INAME`
+Show netem status
+-----------------
+`./netem.sh INAME ls`
 
-[More info](http://www.linuxfoundation.org/collaborate/workgroups/networking/netem)
+Deinitialize
+------------
+`sudo ./netem.sh INAME deinit`
+
+
+[More info on netem](http://www.linuxfoundation.org/collaborate/workgroups/networking/netem)
