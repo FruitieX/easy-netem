@@ -74,6 +74,8 @@ elif [[ "$CMD" == "tc" ]]; then
 
     LATENCY="delay $(($3/2))ms"
     LOSS="loss $(($4/2))%"
+    # increase queue length
+    LIMIT="limit 10000"
 
     # fourth argument given
     if [[ ! -z "$5" ]]; then
@@ -86,8 +88,8 @@ elif [[ "$CMD" == "tc" ]]; then
         exit 1
     fi
 
-    tc qdisc change dev "$INTERFACE" root netem $LATENCY $LOSS $RATE
-    tc qdisc change dev "ifb0" root netem $LATENCY $LOSS $RATE
+    tc qdisc change dev "$INTERFACE" root netem $LATENCY $LOSS $RATE $LIMIT
+    tc qdisc change dev "ifb0" root netem $LATENCY $LOSS $RATE $LIMIT
 
 # at least three args must be given
 else
